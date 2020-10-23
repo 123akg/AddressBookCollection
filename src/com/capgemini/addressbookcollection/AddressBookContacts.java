@@ -118,4 +118,8 @@ public class AddressBookContacts {
 			  return false;
 			  
 	  }
+	  
+	  public String toString() {
+		  return "First name : "+firstName+" Last name : "+lastName;
+	  }
 }

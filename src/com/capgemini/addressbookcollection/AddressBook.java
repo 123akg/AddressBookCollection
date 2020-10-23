@@ -1,11 +1,11 @@
 package com.capgemini.addressbookcollection;
 
-
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
 	public static Map<String,AddressBook> hm= new HashMap<String, AddressBook>(); 
+	
 	
 	String addressBookName;
 	Scanner sc =new Scanner(System.in);
@@ -40,6 +40,7 @@ public class AddressBook {
 			  
 			  else
 			    list.add(contact);
+			  
 		  }
 		
 		
@@ -120,6 +121,45 @@ public class AddressBook {
 	    	 list.remove(pos);
 	  	  }
 		
+		public static void searchByCity(String city) {
+			if(AddressBook.hm.isEmpty())
+			{
+				System.out.println("No AddressBook Exists, add new AddressBook First");
+				System.exit(0);
+			}
+			for(Map.Entry<String, AddressBook> ab : AddressBook.hm.entrySet()) {
+				
+				 List<AddressBookContacts> c = ab.getValue().list.stream().filter(i->i.getCity().equals(city)).collect(Collectors.toList());
+			   if(c.size() == 0)
+				   System.out.println("No entry with city name: "+city+" in addressbook "+ab.getKey());
+			   
+			   else
+				   for(int j=0 ;j< c.size();j++) {
+					    System.out.println("AddressBook "+ab.getKey()+" Name "+c.get(j).getFirstName()+" "+c.get(j).getLastName());
+				   }
+		}
+	 }
+		
+			
+		public static void searchByState(String state) {
+			
+			if(AddressBook.hm.isEmpty())
+			{
+				System.out.println("No AddressBook Exists, add new AddressBook First");
+				System.exit(0);
+			}
+			for(Map.Entry<String, AddressBook> ab : AddressBook.hm.entrySet()) {
+			
+			   List<AddressBookContacts> c = ab.getValue().list.stream().filter(i->i.getCity().equals(state)).collect(Collectors.toList());
+			    
+			   if(c.size() == 0)
+				   System.out.println("No entry with state name: "+state+" in addressbook "+ab.getKey());
+			   
+			   else
+				   for(int j=0 ;j< c.size();j++)
+					   System.out.println("AddressBook "+ab.getKey()+" Name "+c.get(j).getFirstName()+" "+c.get(j).getLastName());
+		}
+	 }
 		
 
 }

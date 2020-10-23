@@ -32,11 +32,13 @@ public class AddressBookMain {
 		   System.out.println("2.Edit a contact");
 		   System.out.println("3.Delete a contact");
 		   System.out.println("4.Create new address book");
-		   System.out.println("5.Exit");
+		   System.out.println("5.Search Contact in particular city");
+		   System.out.println("6.Search Contact in particular state");
+		   System.out.println("7.Exit");
 		   
 		   int choice = sc.nextInt();
 		   
-		   if(choice == 5)
+		   if(choice == 7)
 			   break;
 		   
 		   switch(choice) {
@@ -107,10 +109,22 @@ public class AddressBookMain {
 			   AddressBook.hm.put(name, obj);
 			   System.out.println("Address Book Created");
 			   break;
+			   
+		   case 5:
+			   
+			   System.out.println("Enter the city to search contacts");
+			   AddressBook.searchByCity(sc.next());
+			   break;
+			   
+		   case 6:
+			   
+			   System.out.println("Enter the state to search contacts");
+			   AddressBook.searchByState(sc.next());
+			   break;
+			
 		   }
 			
 			 
 		}
 	}
-
 }

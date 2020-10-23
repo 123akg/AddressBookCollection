@@ -38,11 +38,12 @@ public class AddressBookMain {
 		   System.out.println("8.View Contact in particular state");
 		   System.out.println("9.Total Contacts in particular city");
 		   System.out.println("10.Total Contacts in particular state");
-		   System.out.println("11.Exit");
+		   System.out.println("11.View Alphabetically sorted contacts in a particular address book");
+		   System.out.println("12.Exit");
 		   
 		   int choice = sc.nextInt();
 		   
-		   if(choice == 11)
+		   if(choice == 12)
 			   break;
 		   
 		   switch(choice) {
@@ -148,6 +149,12 @@ public class AddressBookMain {
 			   System.out.println("Enter the state to view total contacts");
 			   int state_count = AddressBook.stateList.get(sc.next()).size();
 			   System.out.println(state_count);
+			   break;
+			   
+		   case 11:
+			   System.out.println("Enter the address book to view its sorted contacts");
+			   String AddressBookName = sc.next();
+			   AddressBook.viewSortedContactsInAddressBook(AddressBookName);
 			   break;
 			
 		   }

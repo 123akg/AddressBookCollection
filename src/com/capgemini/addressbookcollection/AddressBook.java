@@ -195,4 +195,15 @@ public class AddressBook {
 			   }
 		}
 		
+		
+		public static void viewSortedContactsInAddressBook(String AddressBookName) {
+			if(hm.get(AddressBookName) == null)
+			{
+				System.out.println("No addressBook with this name, enter correct address book");
+				return;
+			}
+            hm.get(AddressBookName).list.stream().sorted((n1,n2) -> n1.getFirstName().compareTo(n2.getFirstName())).
+					                               map(i->i.toString()).forEach(y-> System.out.println(y));
+		}
+		
 }

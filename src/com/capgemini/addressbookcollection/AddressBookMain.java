@@ -34,11 +34,13 @@ public class AddressBookMain {
 		   System.out.println("4.Create new address book");
 		   System.out.println("5.Search Contact in particular city");
 		   System.out.println("6.Search Contact in particular state");
-		   System.out.println("7.Exit");
+		   System.out.println("7.View Contact in particular city");
+		   System.out.println("8.View Contact in particular state");
+		   System.out.println("9.Exit");
 		   
 		   int choice = sc.nextInt();
 		   
-		   if(choice == 7)
+		   if(choice == 9)
 			   break;
 		   
 		   switch(choice) {
@@ -121,6 +123,18 @@ public class AddressBookMain {
 			   System.out.println("Enter the state to search contacts");
 			   AddressBook.searchByState(sc.next());
 			   break;
+			   
+           case 7:
+			   
+			   System.out.println("Enter the city to view contacts");
+			   AddressBook.viewByCity(sc.next());
+			   break;
+			   
+		   case 8:
+			   
+			   System.out.println("Enter the state to view contacts");
+			   AddressBook.viewByState(sc.next());
+			   break;	
 			
 		   }
 			

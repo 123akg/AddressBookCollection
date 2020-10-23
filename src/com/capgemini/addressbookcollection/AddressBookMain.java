@@ -38,12 +38,15 @@ public class AddressBookMain {
 		   System.out.println("8.View Contact in particular state");
 		   System.out.println("9.Total Contacts in particular city");
 		   System.out.println("10.Total Contacts in particular state");
-		   System.out.println("11.View Alphabetically sorted contacts in a particular address book");
-		   System.out.println("12.Exit");
+		   System.out.println("11.View Alphabetically sorted contacts in a particular address book by name");
+		   System.out.println("12.View Alphabetically sorted contacts in a particular address book by city");
+		   System.out.println("13.View Alphabetically sorted contacts in a particular address book by state");
+		   System.out.println("14.View Alphabetically sorted contacts in a particular address book by zip");
+		   System.out.println("15.Exit");
 		   
 		   int choice = sc.nextInt();
 		   
-		   if(choice == 12)
+		   if(choice == 15)
 			   break;
 		   
 		   switch(choice) {
@@ -152,9 +155,23 @@ public class AddressBookMain {
 			   break;
 			   
 		   case 11:
-			   System.out.println("Enter the address book to view its sorted contacts");
-			   String AddressBookName = sc.next();
-			   AddressBook.viewSortedContactsInAddressBook(AddressBookName);
+			   System.out.println("Enter the address book to view its sorted contacts by Name");
+			   AddressBook.viewSortedContactsByFirstNameInAddressBook(sc.next());
+			   break;
+			   
+		   case 12:
+			   System.out.println("Enter the address book to view its sorted contacts by City");
+			   AddressBook.viewSortedContactsByCityInAddressBook(sc.next());
+			   break;
+			   
+		   case 13:
+			   System.out.println("Enter the address book to view its sorted contacts by State");
+			   AddressBook.viewSortedContactsByStateInAddressBook(sc.next());
+			   break;
+			   
+		   case 14:
+			   System.out.println("Enter the address book to view its sorted contacts by Zip");
+			   AddressBook.viewSortedContactsByZipInAddressBook(sc.next());
 			   break;
 			
 		   }

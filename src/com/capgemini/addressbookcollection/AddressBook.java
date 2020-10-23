@@ -196,13 +196,43 @@ public class AddressBook {
 		}
 		
 		
-		public static void viewSortedContactsInAddressBook(String AddressBookName) {
+		public static void viewSortedContactsByFirstNameInAddressBook(String AddressBookName) {
 			if(hm.get(AddressBookName) == null)
 			{
 				System.out.println("No addressBook with this name, enter correct address book");
 				return;
 			}
-            hm.get(AddressBookName).list.stream().sorted((n1,n2) -> n1.getFirstName().compareTo(n2.getFirstName())).
+            hm.get(AddressBookName).list.stream().sorted(Comparator.comparing(AddressBookContacts :: getFirstName)).
+					                               map(i->i.toString()).forEach(y-> System.out.println(y));
+		}
+		
+		public static void viewSortedContactsByCityInAddressBook(String AddressBookName) {
+			if(hm.get(AddressBookName) == null)
+			{
+				System.out.println("No addressBook with this name, enter correct address book");
+				return;
+			}
+            hm.get(AddressBookName).list.stream().sorted(Comparator.comparing(AddressBookContacts :: getCity)).
+					                               map(i->i.toString()).forEach(y-> System.out.println(y));
+		}
+
+		public static void viewSortedContactsByStateInAddressBook(String AddressBookName) {
+			if(hm.get(AddressBookName) == null)
+			{
+				System.out.println("No addressBook with this name, enter correct address book");
+				return;
+			}
+            hm.get(AddressBookName).list.stream().sorted(Comparator.comparing(AddressBookContacts :: getState)).
+					                               map(i->i.toString()).forEach(y-> System.out.println(y));
+		}
+		
+		public static void viewSortedContactsByZipInAddressBook(String AddressBookName) {
+			if(hm.get(AddressBookName) == null)
+			{
+				System.out.println("No addressBook with this name, enter correct address book");
+				return;
+			}
+            hm.get(AddressBookName).list.stream().sorted(Comparator.comparing(AddressBookContacts :: getZip)).
 					                               map(i->i.toString()).forEach(y-> System.out.println(y));
 		}
 		

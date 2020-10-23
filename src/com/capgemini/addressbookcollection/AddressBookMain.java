@@ -36,11 +36,13 @@ public class AddressBookMain {
 		   System.out.println("6.Search Contact in particular state");
 		   System.out.println("7.View Contact in particular city");
 		   System.out.println("8.View Contact in particular state");
-		   System.out.println("9.Exit");
+		   System.out.println("9.Total Contacts in particular city");
+		   System.out.println("10.Total Contacts in particular state");
+		   System.out.println("11.Exit");
 		   
 		   int choice = sc.nextInt();
 		   
-		   if(choice == 9)
+		   if(choice == 11)
 			   break;
 		   
 		   switch(choice) {
@@ -134,11 +136,24 @@ public class AddressBookMain {
 			   
 			   System.out.println("Enter the state to view contacts");
 			   AddressBook.viewByState(sc.next());
-			   break;	
+			   break;
+			   
+		   case 9:
+			   System.out.println("Enter the city to view total contacts");
+			   int city_count = AddressBook.cityList.get(sc.next()).size();
+			   System.out.println(city_count);
+			   break;
+			   
+		   case 10:
+			   System.out.println("Enter the state to view total contacts");
+			   int state_count = AddressBook.stateList.get(sc.next()).size();
+			   System.out.println(state_count);
+			   break;
 			
 		   }
 			
 			 
 		}
 	}
+	
 }

@@ -5,7 +5,8 @@ import java.util.stream.Collectors;
 
 public class AddressBook {
 	public static Map<String,AddressBook> hm= new HashMap<String, AddressBook>(); 
-	
+	public static Map<String,ArrayList<AddressBookContacts>> cityList = new HashMap<>();
+	public static Map<String,ArrayList<AddressBookContacts>> stateList = new HashMap<>();
 	
 	String addressBookName;
 	Scanner sc =new Scanner(System.in);
@@ -41,6 +42,21 @@ public class AddressBook {
 			  else
 			    list.add(contact);
 			  
+			  if(cityList.containsKey(contact.getCity())) {
+					cityList.get(contact.getCity()).add(contact);
+				}
+				else {
+					cityList.put(contact.getCity(), new ArrayList<AddressBookContacts>());
+					cityList.get(contact.getCity()).add(contact);
+				}
+			  
+			  if(stateList.containsKey(contact.getState())) {
+					stateList.get(contact.getState()).add(contact);
+				}
+				else {
+					stateList.put(contact.getState(), new ArrayList<AddressBookContacts>());
+					stateList.get(contact.getState()).add(contact);
+				}
 		  }
 		
 		
@@ -161,5 +177,21 @@ public class AddressBook {
 		}
 	 }
 		
-
+		public static void viewByCity(String city) {
+			List<AddressBookContacts> c = cityList.get(city);
+			for(int j=0 ;j < c.size();j++) {
+				   System.out.println(c.get(j).getCity());
+				    System.out.println(" Name "+c.get(j).getFirstName()+" "+c.get(j).getLastName());
+			   }
+		}
+		
+		
+		
+		
+		public static void viewByState(String state) {
+			List<AddressBookContacts> c = stateList.get(state);
+			for(int j=0 ;j < c.size();j++) {
+				    System.out.println(" Name "+c.get(j).getFirstName()+" "+c.get(j).getLastName());
+			   }
+		}
 }
